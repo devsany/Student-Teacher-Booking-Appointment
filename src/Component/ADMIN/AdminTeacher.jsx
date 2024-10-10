@@ -14,9 +14,12 @@ const AdminTeacher = () => {
     subject: "",
     extraSubject1: "",
     extraSubject2: "",
-    appoint1: "",
-    appoint2: "",
-    appoint3: "",
+    appoint1: false,
+    appoint2: false,
+    appoint3: false,
+    appointStudent1: "",
+    appointStudent2: "",
+    appointStudent3: "",
     teacherPassword: teacherPassword,
     a: "",
     number: "",
@@ -44,9 +47,16 @@ const AdminTeacher = () => {
       activity: m.a,
       number: m.number,
       email: m.email,
+      appoint1: m.appoint1,
+      appoint2: m.appoint2,
+      appoint3: m.appoint3,
+      appointStudent1: m.appointStudent1,
+      appointStudent2: m.appointStudent2,
+      appointStudent3: m.appointStudent3,
     })
       .then(() => {
         alert("data saved successfully");
+        window.location.reload();
       })
       .catch((err) => {
         alert("error", err.message);

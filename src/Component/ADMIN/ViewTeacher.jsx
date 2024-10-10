@@ -54,14 +54,14 @@ const ViewTeacher = () => {
                   <div>
                     <div>
                       <NavLink
-                        to={`/admin/admin_console/admin_view_teacher_console/${item.number}`}
+                        to={`/admin/admin_console/admin_view_teacher_console/${item.teacherPassword}`}
                       >
                         View
                       </NavLink>
                     </div>
                     <div>
                       <NavLink
-                        to={`/admin/admin_console/admin_update_teacher_console/${item.number}`}
+                        to={`/admin/admin_console/admin_update_teacher_console/${index}`}
                       >
                         Update
                       </NavLink>

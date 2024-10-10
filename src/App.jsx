@@ -17,6 +17,7 @@ import UpdateTeacher from "./Component/ADMIN/UpdateTeacher";
 import StudentRegistration from "./Component/STUDENT/StudentRegistration";
 import Student_page_id from "./Component/STUDENT/Student_page_id";
 import ActivateStudent from "./Component/ADMIN/ActivateStudent";
+import StudentViewTeacher from "./Component/STUDENT/StudentViewTeacher";
 
 const App = () => {
   return (
@@ -64,6 +65,10 @@ const App = () => {
           <Route
             path="/admin/admin_console/admin_student_console/asmin_studnet_console_id/:id"
             element={<ActivateStudent />}
+          />
+          <Route
+            path="/student/teacher_search/:id"
+            element={<StudentViewTeacher />}
           />
         </Routes>
       </BrowserRouter>

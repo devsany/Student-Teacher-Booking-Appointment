@@ -15,7 +15,8 @@ const ViewTeacherID = () => {
     console.log(snapshot);
     if (snapshot.exists()) {
       setData(
-        Object.values(snapshot.val()).filter((item) => item.number == id)
+        Object.values(snapshot.val()).filter((item) => item.teacherPassword
+        == id)
       );
     } else {
       alert("data is not found");

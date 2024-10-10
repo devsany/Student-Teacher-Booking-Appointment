@@ -9,52 +9,37 @@ const UpdateTeacher = () => {
   const [m, setM] = useState({});
   const [teacherKey, setTeacherKey] = useState("");
   const nav = useNavigate();
-//   fetch the teacher data
+  //   fetch the teacher data
   const fetchTeacherID = async () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
     const snapshot = await get(dataRef);
     console.log(snapshot);
     if (snapshot.exists()) {
-      const key = Object.keys(snapshot.val())[0];
+      const key = Object.keys(snapshot.val())[id];
+      const value = Object.values(snapshot.val())[id];
+      console.log(value);
 
       setTeacherKey(key);
       setM({
-        name: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].name,
-        department: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].department,
-        subject: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].subject,
-        extraSubject1: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].extraSubject1,
-        extraSubject2: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].extraSubject2,
+        name: Object.values(snapshot.val())[id].name,
+        department: Object.values(snapshot.val())[id].department,
+        subject: Object.values(snapshot.val())[id].subject,
+        extraSubject1: Object.values(snapshot.val())[id].extraSubject1,
+        extraSubject2: Object.values(snapshot.val())[id].extraSubject2,
         // appoint1: Object.values(snapshot.val()).filter(
         //   (item) => item.number == id
-        // )[0].appoint1,
+        // )[id].appoint1,
         // appoint2: Object.values(snapshot.val()).filter(
         //   (item) => item.number == id
-        // )[0].appoint2,
+        // )[id].appoint2,
         // appoint3: Object.values(snapshot.val()).filter(
         //   (item) => item.number == id
-        // )[0].appoint3,
-        teacherPassword: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].teacherPassword,
-        a: Object.values(snapshot.val()).filter((item) => item.number == id)[0]
-          .a,
-        number: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].number,
-        email: Object.values(snapshot.val()).filter(
-          (item) => item.number == id
-        )[0].email,
+        // )[id].appoint3,
+        teacherPassword: Object.values(snapshot.val())[id].teacherPassword,
+        a: Object.values(snapshot.val())[id].a,
+        number: Object.values(snapshot.val())[id].number,
+        email: Object.values(snapshot.val())[id].email,
       });
       setTeacherKey(key);
     } else {
@@ -91,6 +76,7 @@ const UpdateTeacher = () => {
       })
         .then(() => {
           alert("Teacher updated successfully!");
+          nav("/admin/admin_console/admin_view_teacher_console");
         })
         .catch((error) => {
           alert("Error updating teacher:", error);
@@ -129,8 +115,8 @@ const UpdateTeacher = () => {
         >
           Back
         </button>
-        <h2 className="text-center">UpdateTeacher</h2>
-        {id}
+        <h2 className="text-center">Update Teacher id {Number(id) + 1} </h2>
+
         <div>
           <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
             <label htmlFor="name">Name of Teacher</label>
