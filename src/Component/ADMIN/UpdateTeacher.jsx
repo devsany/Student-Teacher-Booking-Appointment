@@ -9,6 +9,7 @@ const UpdateTeacher = () => {
   const [m, setM] = useState({});
   const [teacherKey, setTeacherKey] = useState("");
   const nav = useNavigate();
+//   fetch the teacher data
   const fetchTeacherID = async () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");

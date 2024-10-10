@@ -1,12 +1,15 @@
-import { getDatabase, push, ref, set } from "firebase/database";
+import { get, getDatabase, push, ref, set } from "firebase/database";
 
 import app from "../firebase/firebaseConsole";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
+const studentPassword = Math.floor(100000 + Math.random() * 900000);
 const StudentRegistration = () => {
-  const studentPassword = Math.floor(100000 + Math.random() * 900000);
-
+  const [data, setData] = useState([]);
+  const [errorLogin, setErrorLogin] = useState({});
+  const [showPassword, setShowPassword] = useState(false);
+  const nav = useNavigate();
   const [m, setM] = useState({
     name: "",
     class: "",
@@ -29,6 +32,7 @@ const StudentRegistration = () => {
     school: "",
     number: "",
     email: "",
+    password: "",
   });
 
   const handleSubmit = async (e) => {
@@ -45,9 +49,13 @@ const StudentRegistration = () => {
       school: m.school,
       number: m.number,
       email: m.email,
+      active: false,
     })
       .then(() => {
         alert("data saved successfully");
+        setShowPassword(true);
+        nav("/");
+        window.location.reload();
       })
       .catch((err) => {
         alert("error", err.message);
@@ -62,6 +70,41 @@ const StudentRegistration = () => {
   const handleLogin = (e) => {
     const { name, value } = e.target;
     setR({ ...r, [name]: value });
+  };
+  const fetchStudentID = async () => {
+    const error = {};
+    if (!r.name) {
+      error.name = "require to fetch password approve by admin";
+    } else if (!r.class) {
+      error.class = "require to fetch password approve by admin";
+    } else if (!r.number) {
+      error.number = "require to fetch password approve by admin";
+    } else {
+      const db = getDatabase(app);
+      const dataRef = ref(db, "data /students");
+      const snapshot = await get(dataRef);
+      console.log(snapshot);
+      if (snapshot.exists()) {
+        setData(
+          Object.values(snapshot.val()).filter(
+            (item) =>
+              item.number == r.number &&
+              item.name == r.name &&
+              item.class == r.class &&
+              item.active == true
+          )
+        );
+      } else {
+        alert("data is not found");
+      }
+    }
+    setErrorLogin(error);
+  };
+
+  const handleSubmitLogin = (e) => {
+    e.preventDefault();
+
+    nav(`/student/${data[0].studentPassword}`);
   };
   return (
     <div>
@@ -134,13 +177,32 @@ const StudentRegistration = () => {
                 />
               </div>
             </div>
+            {showPassword ? (
+              <>
+                {" "}
+                Wate for Admin to verify your submited data if any query plz
+                fill free to contact on 8540897814
+              </>
+            ) : (
+              <>
+                After Submition of Registration Form Password Will be generated
+              </>
+            )}
 
             <button type="submit">Submit</button>
           </form>
         </div>
         <div className="border m-4">
-          Already Register
-          <form onSubmit={() => {}}>
+          Already Register Plx Fill Free to fill the form and password all ready
+          generated
+          <ol>
+            <li>Copy password</li>
+            <li>
+              Paste in Password Block you will get all access to you account
+              thanku
+            </li>
+          </ol>
+          <form onSubmit={handleSubmitLogin}>
             <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
               <label htmlFor="name">Name of Student</label>
               <div>
@@ -153,6 +215,7 @@ const StudentRegistration = () => {
                   onChange={handleLogin}
                 />
               </div>
+              {errorLogin.name && <>{errorLogin.name}</>}
             </div>
             <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
               <label htmlFor="class">Class</label>
@@ -166,6 +229,7 @@ const StudentRegistration = () => {
                   value={r.class}
                 />
               </div>
+              {errorLogin.class && <>{errorLogin.class}</>}
             </div>
             <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
               <label htmlFor="number">Enter your Mobile Number</label>
@@ -179,35 +243,35 @@ const StudentRegistration = () => {
                   value={r.number}
                 />
               </div>
+              {errorLogin.number && <>{errorLogin.number}</>}
             </div>
             <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
-              <label htmlFor="email">Enter your Email</label>
+              <label htmlFor="password">Enter Generated Password</label>
               <div>
                 <input
-                  id="email"
-                  name="email"
+                  id="password"
+                  name="password"
                   onChange={handleLogin}
-                  type="email"
-                  placeholder="Enter your Mobile Number"
-                  value={r.email}
+                  type="number"
+                  placeholder="Enter Generated Password"
+                  value={r.password}
                 />
               </div>
+              {errorLogin.number && <>{errorLogin.number}</>}
             </div>
-            <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
-              <label htmlFor="School">Enter your school Name</label>
-              <div>
-                <input
-                  id="school"
-                  name="school"
-                  onChange={handleLogin}
-                  type="text"
-                  placeholder="Enter your school name"
-                  value={r.school}
-                />
-              </div>
-            </div>
-
-            <button type="submit">Submit</button>
+            {data.length == 1 ? <>{data[0].studentPassword}</> : null}
+            <button
+              className="border pl-3 pr-3 bg-green-200 rounded-md"
+              onClick={fetchStudentID}
+            >
+              Click to get admin approve password
+            </button>
+            <button
+              className="border pl-3 pr-3 bg-gray-400 rounded-md"
+              type="submit"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </div>
