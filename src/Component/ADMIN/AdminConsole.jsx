@@ -7,7 +7,12 @@ const AdminConsole = () => {
       <div className="border">
         <div>
           <NavLink to="/admin/admin_console/admin_teacher_console">
-            Teacher Database{" "}
+            Add Teacher{" "}
+          </NavLink>
+        </div>
+        <div>
+          <NavLink to="/admin/admin_console/admin_view_teacher_console">
+            List of All Teachers{" "}
           </NavLink>
         </div>
         <div>

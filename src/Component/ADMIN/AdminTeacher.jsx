@@ -5,6 +5,9 @@ import app from "../firebase/firebaseConsole";
 import { ref, set, push, getDatabase } from "firebase/database";
 
 const AdminTeacher = () => {
+  // teacher password generate
+  const teacherPassword = Math.floor(100000 + Math.random() * 900000);
+
   const [m, setM] = useState({
     name: "",
     department: "",
@@ -14,6 +17,10 @@ const AdminTeacher = () => {
     appoint1: "",
     appoint2: "",
     appoint3: "",
+    teacherPassword: teacherPassword,
+    a: "",
+    number: "",
+    email: "",
   });
   const nav = useNavigate();
   const handleClick = () => {
@@ -33,6 +40,10 @@ const AdminTeacher = () => {
       subject: m.subject,
       extraSubject1: m.extraSubject1,
       extraSubject2: m.extraSubject2,
+      teacherPassword: m.teacherPassword,
+      activity: m.a,
+      number: m.number,
+      email: m.email,
     })
       .then(() => {
         alert("data saved successfully");
@@ -47,7 +58,13 @@ const AdminTeacher = () => {
   };
   return (
     <div>
-      <button onClick={handleClick}>Back</button>AdminTeacher
+      <button
+        className="pl-2 pr-2 border greeb rounded bg-green-100"
+        onClick={handleClick}
+      >
+        Back
+      </button>
+      <h2 className="text-center">Add Teacher</h2>
       <div>
         <form onSubmit={handleSubmit}>
           <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
@@ -59,6 +76,30 @@ const AdminTeacher = () => {
               type="text"
               placeholder="Enter Teacher name"
               value={m.name}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
+            <label htmlFor="number">Teacher Mobile Number</label>
+            <input
+              id="number"
+              name="number"
+              className="border w-[100%] shadow-sm rounded-sm pl-1"
+              type="number"
+              placeholder="Enter Teacher Mobile Number"
+              value={m.number}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
+            <label htmlFor="email">Teacher Email</label>
+            <input
+              id="email"
+              name="email"
+              className="border w-[100%] shadow-sm rounded-sm pl-1"
+              type="email"
+              placeholder="Enter Teacher Email"
+              value={m.email}
               onChange={handleChange}
             />
           </div>
@@ -109,6 +150,17 @@ const AdminTeacher = () => {
               value={m.extraSubject2}
               onChange={handleChange}
             />
+          </div>
+          <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
+            <label htmlFor="activity">Active / Disactive</label>
+            <div>
+              {" "}
+              <select name="a" value={m.a} onChange={handleChange} id="a">
+                <option value="">Select Option</option>
+                <option value="active">Active</option>
+                <option value="disactive">Disactive</option>
+              </select>
+            </div>
           </div>
           <button
             className="border    mt-4 md:mt-5 hover:border-yellow-500 border-pink-300 shadow-md shadow-yellow-100"
