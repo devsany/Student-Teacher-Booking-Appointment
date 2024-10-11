@@ -228,14 +228,18 @@ const AdminTeacher = () => {
                   </select>
                 </div>
               </div>
+              <div className="flex float-right mt-2 mb-5">
+                <button
+                  className="border pl-6 pr-6 pt-1 pb-1 rounded-md bg-blue-200"
+                  type="submit"
+                >
+                  <span className="block  text-md font-medium text-gray-900 dark:text-white">
+                    Submit
+                  </span>
+                </button>
+              </div>
             </div>
           </div>
-          <button
-            className="border    mt-4 md:mt-5 hover:border-yellow-500 border-pink-300 shadow-md shadow-yellow-100"
-            type="submit"
-          >
-            Submit
-          </button>
         </form>
       </div>
     </div>

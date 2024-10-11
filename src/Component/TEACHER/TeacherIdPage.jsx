@@ -53,73 +53,98 @@ const TeacherIdPage = () => {
   }, []);
   return (
     <div>
-      <h2 className="text-center">TeacherIdPage</h2>
+      <div className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+        {" "}
+        Teacher page
+      </div>
 
       <div>
         {data &&
           data.map((item, index) => {
             return (
               <>
-                <div>name:{item.name}</div>
-                <div>Mobile Number:-{item.number}</div>
-                <div>Email:-{item.email}</div>
-                <div>Department:-{item.department}</div>
-                <div>Subject Teacher:-{item.subject}</div>
-                <div>Extra Subject (1):-{item.extraSubject1}</div>
-                <div>Extra Subject (2):-{item.extraSubject2}</div>
-                <div>Teacher Account Password:-{item.teacherPassword}</div>
-                <div>Teacher Activity:-{item.activity}</div>
-                <div className="grid grid-cols-3 gap-4">
-                  <div className="pl-3 pr-3 pt-1 pb-1   border rounded-lg">
+                <div className="border p-10 shadow-lime-700-md ml-3 mr-3 text-lg font-medium text-gray-900 dark:text-white m-2 p-2 rounded border-green-200">
+                  <div>
+                    <div className="text-3xl">{item.name} </div>
+                    <div className="text-lg mt-2 ml-1">({item.subject})</div>
+                  </div>
+                  <div> {item.department}</div>
+                  <hr className="mt-4" />
+                  <div className="mt-2 mb-2">
+                    <div>Mobile Number:-{item.number}</div>
+                    <div>Email:-{item.email}</div>
+                  </div>
+                  <hr className="mt-4" />
+                  <div className="mb-2 mt-2">
+                    Subject Teacher:-{item.subject}
+                  </div>
+                  <hr className="mt-4" />
+                  <div className="mt-2 mb-2">
+                    <div>Extra Subject (1):-{item.extraSubject1}</div>
+                    <div>Extra Subject (2):-{item.extraSubject2}</div>
+                  </div>
+                  <hr className="mt-4" />
+                  <div className="mt-2 mb-2">
+                    Teacher Account Number:- {item.teacherPassword}
+                  </div>
+                </div>
+                <div className="grid m-3 grid-cols-3 gap-4">
+                  <div>
                     {s1 ? (
-                      <div className="bg-green-200">
-                        <NavLink
-                          to={{
-                            pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
-                            // state: { s1 },
+                      <NavLink
+                        to={{
+                          pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
+                          // state: { s1 },
 
-                            hash: String(s1), // Pass the student data
-                          }}
-                        >
+                          hash: String(s1), // Pass the student data
+                        }}
+                      >
+                        <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-green-200 border rounded-lg">
                           Appoint Teacher
-                        </NavLink>
-                      </div>
+                        </div>
+                      </NavLink>
                     ) : (
-                      <div className="bg-red-200">Not Appointed</div>
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                        Not Appointed
+                      </div>
                     )}
                   </div>
-                  <div className="pl-3 pr-3 pt-1 pb-1   border rounded-lg">
+                  <div>
                     {s2 ? (
-                      <div className="bg-green-200">
-                        <NavLink
-                          to={{
-                            pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
-                            // state: `/ram`,
-                            hash: String(s2), // Pass the student data
-                          }}
-                        >
+                      <NavLink
+                        to={{
+                          pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
+                          // state: `/ram`,
+                          hash: String(s2), // Pass the student data
+                        }}
+                      >
+                        <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-green-200 border rounded-lg">
                           Appoint Teacher
-                        </NavLink>
-                      </div>
+                        </div>
+                      </NavLink>
                     ) : (
-                      <div className="bg-red-200">Not Appointed</div>
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                        Not Appointed
+                      </div>
                     )}
                   </div>
-                  <div className="pl-3 pr-3 pt-1 pb-1   border rounded-lg">
+                  <div>
                     {s3 ? (
-                      <div className="bg-green-200">
-                        <NavLink
-                          to={{
-                            pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
-                            state: `/ram`,
-                            hash: String(s3), // Pass the student data
-                          }}
-                        >
+                      <NavLink
+                        to={{
+                          pathname: `/teacher/appoint_student/${id}/${index}`, // Assuming you have a route like /teacher/:id
+                          state: `/ram`,
+                          hash: String(s3), // Pass the student data
+                        }}
+                      >
+                        <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-green-200 border rounded-lg">
                           Appoint Teacher
-                        </NavLink>
-                      </div>
+                        </div>
+                      </NavLink>  
                     ) : (
-                      <div className="bg-red-200">Not Appointed</div>
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                        Not Appointed
+                      </div>
                     )}
                   </div>
                 </div>

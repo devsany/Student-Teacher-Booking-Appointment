@@ -43,46 +43,75 @@ const TeacherLogin = () => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <hr className="m-4" />
+      <div className="flex justify-center">
         <div>
-          <hr />
-          <h2 className="text-center">Teacher Login Page</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <div className="text-center block mb-2 text-lg font-medium text-gray-900 dark:text-white">
+                {" "}
+                Teacher Login
+              </div>
+            </div>
+            <div>
+              <div>
+                {error && (
+                  <span className="text-red font-medium">
+                    Wrong Name and password
+                  </span>
+                )}
+              </div>
+            </div>
+            <div className="shadow-sm mb-2 border-green-200 border rounded-md   text-md h-[95px] p-2">
+              <label
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="name"
+              >
+                Enter Teacher name
+              </label>
+              <div>
+                <input
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Enter Your Name"
+                  value={m.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className="shadow-sm mb-2 border-green-200 border rounded-md   text-md h-[95px] p-2">
+              <label
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                htmlFor="password"
+              >
+                Enter password (If not! contact Admin for password 8540897814)
+              </label>
+              <div>
+                <input
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="password"
+                  name="password"
+                  type="text"
+                  placeholder="Enter your Password"
+                  value={m.password}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <button className="pl-2  pr-2 border greeb rounded bg-green-100">
+                <span className="block  pl-3 pr-3 pt-1 pb-1   text-sm font-medium text-gray-900 dark:text-white">
+                  Submit
+                </span>
+              </button>
+            </div>
+          </form>
         </div>
-        <div>{error && <>Wrong Name and password</>}</div>
-        <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
-          <label htmlFor="name">Name Your name</label>
-          <div>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              placeholder="Enter Your Name"
-              value={m.name}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-        <div className="shadow-lg rounded-md font-mono text-md h-[120px] p-2">
-          <label htmlFor="password">
-            Name your password (contact Admin for password 8540897814)
-          </label>
-          <div>
-            <input
-              id="password"
-              name="password"
-              type="text"
-              placeholder="Enter your Password"
-              value={m.password}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        </div>
-        <div>
-          <button className="p-2 m-3border bg-green-200">Submit</button>
-        </div>
-      </form>
+      </div>
     </div>
   );
 };

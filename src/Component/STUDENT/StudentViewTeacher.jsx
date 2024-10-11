@@ -146,15 +146,21 @@ const StudentViewTeacher = () => {
         </button>
       </div>
       <div>
-        <div>
-          <div>name:{data.name}</div>
-          <div>Mobile Number:-{data.number}</div>
-          <div>Email:-{data.email}</div>
+        <div className="border m-2 p-2 shadow-md rounded border-green-200 text-md font-medium text-gray-900 dark:text-white">
+          <div className="flex">
+            {" "}
+            <div className="text-4xl"> {data.name}</div>{" "}
+            <div className="mt-3 text-xl">({data.subject})</div>
+          </div>
           <div>Department:-{data.department}</div>
-          <div>Subject Teacher:-{data.subject}</div>
+          <hr className="mt-3 mb-3" />
           <div>Extra Subject (1):-{data.extraSubject1}</div>
           <div>Extra Subject (2):-{data.extraSubject2}</div>
-          <div>Teacher Activity:-{data.activity}</div>
+          <hr className="mt-3 mb-3" />
+          <div>Mobile Number:-{data.number}</div>
+          <div>Email:-{data.email}</div>
+          <hr className="mt-3 mb-3" />
+
           <div className="grid grid-cols-3">
             <div onClick={handleActivate1}>
               {data.appoint1 ? (

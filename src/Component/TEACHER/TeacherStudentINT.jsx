@@ -44,24 +44,30 @@ const TeacherStudentINT = () => {
   return (
     <>
       <div>Studnet Id</div>
-      <div
-        className="p-2 bg-green-200 border rounded-lg"
+      <button
+        className="pl-2 m-4 pr-2 border greeb rounded bg-green-100"
         onClick={() => nav(`/teacher/${ulr}`)}
       >
-        Back
+        <span className="block  pl-3 pr-3 pt-1 pb-1   text-sm font-medium text-gray-900 dark:text-white">
+          Back
+        </span>
+      </button>
+      <div>
+        {studentReciveID &&
+          studentReciveID.map((item, index) => {
+            return (
+              <>
+                <div className="border p-10 shadow-lime-700-md ml-3 mr-3 text-lg font-medium text-gray-900 dark:text-white m-2 p-2 rounded border-green-200">
+                  <div>Name-{item.name}</div>
+                  <div>Class-{item.class}</div>
+                  <div>School Name - {item.school}</div>
+                  <div>Email-{item.email}</div>
+                  <div>Number-{item.number}</div>
+                </div>
+              </>
+            );
+          })}
       </div>
-      {studentReciveID &&
-        studentReciveID.map((item, index) => {
-          return (
-            <>
-              <div>Class-{item.class}</div>
-              <div>School Name - {item.school}</div>
-              <div>Name-{item.name}</div>
-              <div>Email-{item.email}</div>
-              <div>Number-{item.number}</div>
-            </>
-          );
-        })}
     </>
   );
 };

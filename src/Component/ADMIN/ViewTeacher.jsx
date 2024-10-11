@@ -40,14 +40,14 @@ const ViewTeacher = () => {
       <h2 className="block mb-2 text-2xl text-center font-medium text-gray-900 dark:text-white">
         Teacher's List
       </h2>
-      <div className="flex justify-around flex-wrap grow-0 text-md font-medium text-gray-900 dark:text-white">
+      <div className="flex  justify-around  flex-wrap grow-0 text-md font-medium text-gray-900 dark:text-white">
         {data &&
           data.map((item, index) => {
             return (
               <>
                 <div
                   key={index}
-                  className="border m-2 p-2 rounded border-green-200"
+                  className="border w-[400px] m-2 p-2 rounded border-green-200"
                 >
                   <div className="m-2">
                     <div className="flex ">
@@ -57,15 +57,37 @@ const ViewTeacher = () => {
                     <div> {item.department}</div>
                     <hr />
 
-                    <div>Mobile Number:-{item.number}</div>
-                    <div>Email:-{item.email}</div>
-                    <div>Subject Teacher:-</div>
-                    <div>Extra Subject (1):-{item.extraSubject1}</div>
-                    <div>Extra Subject (2):-{item.extraSubject2}</div>
-                    <div>Teacher Account Password:-{item.teacherPassword}</div>
-                    <div>Teacher Activity:-{item.activity}</div>
+                    <div className="mt-2 mb-2">
+                      <div>Mobile Number:-{item.number}</div>
+                      <div>Email:-{item.email}</div>
+                    </div>
+                    <hr />
+                    <div className="mb-2 mt-2">
+                      Subject Teacher:-{item.subject}
+                    </div>
+                    <hr />
+                    <div className="mt-2 mb-2">
+                      <div>Extra Subject (1):-{item.extraSubject1}</div>
+                      <div>Extra Subject (2):-{item.extraSubject2}</div>
+                    </div>
+                    <hr />
+                    <div className="mt-2 mb-2">
+                      Teacher Account:- {item.teacherPassword}
+                    </div>
+                    {item.activity ? (
+                      <div className=" pl-2 rounded-md shadow-sm mt-1 mb-1 border bg-green-200 ">
+                        Active
+                      </div>
+                    ) : (
+                      <div className="pl-2 rounded-md shadow-sm mt-1 mb-1 border bg-red-200">
+                        Not Active
+                      </div>
+                    )}
                   </div>
                   <div>
+                    <div className="mt-2 mb-2">
+                      <hr />
+                    </div>
                     <div className="border rounded-md m-2 text-center bg-blue-200">
                       <NavLink
                         to={`/admin/admin_console/admin_view_teacher_console/${item.teacherPassword}`}
