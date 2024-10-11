@@ -18,6 +18,9 @@ import StudentRegistration from "./Component/STUDENT/StudentRegistration";
 import Student_page_id from "./Component/STUDENT/Student_page_id";
 import ActivateStudent from "./Component/ADMIN/ActivateStudent";
 import StudentViewTeacher from "./Component/STUDENT/StudentViewTeacher";
+import TeacherLogin from "./Component/TEACHER/TeacherLogin";
+import TeacherIdPage from "./Component/TEACHER/TeacherIdPage";
+import TeacherStudentINT from "./Component/TEACHER/TeacherStudentINT";
 
 const App = () => {
   return (
@@ -32,6 +35,9 @@ const App = () => {
           </div>
           <div>
             <NavLink to="/student">Student Section</NavLink>
+          </div>
+          <div>
+            <NavLink to="/teacher">Teacher Login</NavLink>
           </div>
         </div>
         <Routes>
@@ -70,12 +76,12 @@ const App = () => {
             path="/student/teacher_search/:id"
             element={<StudentViewTeacher />}
           />
-          <div>
-            <NavLink to="/teacherLogin">Teacher Login</NavLink>
-          </div>
-          <div>
-            <NavLink to="/teacherLogin/:id">Teacher Login</NavLink>
-          </div>
+          <Route path="/teacher" element={<TeacherLogin />} />
+          <Route path="/teacher/:id" element={<TeacherIdPage />} />
+          <Route
+            path="/teacher/appoint_student/:id/:id"
+            element={<TeacherStudentINT />}
+          />
         </Routes>
       </BrowserRouter>
     </div>

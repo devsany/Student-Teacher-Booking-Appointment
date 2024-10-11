@@ -10,7 +10,7 @@ const Student_page_id = () => {
   //   const [filteredTeachers, setFilteredTeachers] = useState(data);
   const [query, setQuery] = useState("");
   const { id } = useParams();
-  console.log(id);
+  console.log(typeof id);
 
   const [studentID, setStudentID] = useState(id);
 
