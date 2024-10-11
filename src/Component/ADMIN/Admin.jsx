@@ -87,6 +87,15 @@ const Admin = () => {
                     {syntaxErrors && <>{syntaxErrors.password}</>}
                   </div>
                   <div className="m-4">
+                    <div className="text-red-600">
+                      {inputVarificationErrors.id ||
+                        (inputVarificationErrors.password && (
+                          <>
+                            {inputVarificationErrors.id ||
+                              inputVarificationErrors.password}
+                          </>
+                        ))}
+                    </div>
                     <button
                       type="submit"
                       className="border pl-2 pr-2 pt-1 pb-1 rounded-md bg-blue-200"
@@ -99,16 +108,6 @@ const Admin = () => {
                 </div>
               </div>
             </form>
-          </div>
-
-          <div>
-            {inputVarificationErrors.id ||
-              (inputVarificationErrors.password && (
-                <>
-                  {inputVarificationErrors.id ||
-                    inputVarificationErrors.password}
-                </>
-              ))}
           </div>
         </div>
       </div>

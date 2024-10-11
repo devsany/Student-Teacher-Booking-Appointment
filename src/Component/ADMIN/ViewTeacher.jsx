@@ -26,16 +26,21 @@ const ViewTeacher = () => {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="">
       {" "}
+      <hr className="m-4" />
       <button
-        className="pl-2 pr-2 border greeb rounded bg-green-100"
+        className="pl-2 m-4 pr-2 border greeb rounded bg-green-100"
         onClick={handleClick}
       >
-        Back
+        <span className="block  pl-3 pr-3 pt-1 pb-1   text-sm font-medium text-gray-900 dark:text-white">
+          Back
+        </span>
       </button>
-      <h2 className="text-center">List of all Teacher</h2>
-      <div>
+      <h2 className="block mb-2 text-2xl text-center font-medium text-gray-900 dark:text-white">
+        Teacher's List
+      </h2>
+      <div className="flex justify-around flex-wrap grow-0 text-md font-medium text-gray-900 dark:text-white">
         {data &&
           data.map((item, index) => {
             return (
@@ -44,28 +49,40 @@ const ViewTeacher = () => {
                   key={index}
                   className="border m-2 p-2 rounded border-green-200"
                 >
-                  <div>name:{item.name}</div>
-                  <div>Mobile Number:-{item.number}</div>
-                  <div>Email:-{item.email}</div>
-                  <div>Department:-{item.department}</div>
-                  <div>Subject Teacher:-{item.subject}</div>
-                  <div>Extra Subject (1):-{item.extraSubject1}</div>
-                  <div>Extra Subject (2):-{item.extraSubject2}</div>
-                  <div>Teacher Account Password:-{item.teacherPassword}</div>
-                  <div>Teacher Activity:-{item.activity}</div>
+                  <div className="m-2">
+                    <div className="flex ">
+                      <div className="text-3xl">{item.name} </div>
+                      <div className="text-lg mt-2 ml-1">({item.subject})</div>
+                    </div>
+                    <div> {item.department}</div>
+                    <hr />
+
+                    <div>Mobile Number:-{item.number}</div>
+                    <div>Email:-{item.email}</div>
+                    <div>Subject Teacher:-</div>
+                    <div>Extra Subject (1):-{item.extraSubject1}</div>
+                    <div>Extra Subject (2):-{item.extraSubject2}</div>
+                    <div>Teacher Account Password:-{item.teacherPassword}</div>
+                    <div>Teacher Activity:-{item.activity}</div>
+                  </div>
                   <div>
-                    <div>
+                    <div className="border rounded-md m-2 text-center bg-blue-200">
                       <NavLink
                         to={`/admin/admin_console/admin_view_teacher_console/${item.teacherPassword}`}
                       >
-                        View
+                        <span className="block  pl-3 pr-3 pt-1 pb-1   text-sm font-medium text-gray-900 dark:text-white">
+                          View
+                        </span>
                       </NavLink>
                     </div>
-                    <div>
+                    <div className="border rounded-md text-center m-2 bg-orange-500">
                       <NavLink
                         to={`/admin/admin_console/admin_update_teacher_console/${index}`}
                       >
-                        Update
+                        <span className="block  pl-3 pr-3 pt-1 pb-1   text-sm font-medium text-gray-900 dark:text-white">
+                          {" "}
+                          Update
+                        </span>
                       </NavLink>
                     </div>
                   </div>
