@@ -14,11 +14,11 @@ const UpdateTeacher = () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
     const snapshot = await get(dataRef);
-    console.log(snapshot);
+ 
     if (snapshot.exists()) {
       const key = Object.keys(snapshot.val())[id];
       const value = Object.values(snapshot.val())[id];
-      console.log(value);
+ 
 
       setTeacherKey(key);
       setM({
@@ -94,7 +94,7 @@ const UpdateTeacher = () => {
       // Remove the teacher's data from the database
       remove(teacherRef)
         .then(() => {
-          console.log("Teacher deleted successfully!");
+          alert("Teacher deleted successfully!");
           nav("/admin/admin_console/admin_view_teacher_console");
         })
         .catch((error) => {

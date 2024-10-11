@@ -40,9 +40,11 @@ const ViewTeacher = () => {
           data.map((item, index) => {
             return (
               <>
-                <div className="border m-2 p-2 rounded border-green-200">
-                  {" "}
-                  <div key={index}>name:{item.name}</div>
+                <div
+                  key={index}
+                  className="border m-2 p-2 rounded border-green-200"
+                >
+                  <div>name:{item.name}</div>
                   <div>Mobile Number:-{item.number}</div>
                   <div>Email:-{item.email}</div>
                   <div>Department:-{item.department}</div>

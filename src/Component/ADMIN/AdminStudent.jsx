@@ -41,7 +41,6 @@ const AdminStudent = () => {
       alert("data is not found");
     }
   };
-  console.log(data);
 
   const handleStudentActivate = (e) => {
     if (studentKey) {
@@ -77,7 +76,7 @@ const AdminStudent = () => {
           data.map((item, index) => {
             return (
               <>
-                <div className="p-3 border m-2">
+                <div key={index} className="p-3 border m-2">
                   <div key={index}>Name : - {item.name}</div>
                   <div>Class : - {item.class}</div>
                   <div>Mobile Number : - {item.number}</div>

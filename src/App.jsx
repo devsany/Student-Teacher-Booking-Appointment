@@ -70,6 +70,12 @@ const App = () => {
             path="/student/teacher_search/:id"
             element={<StudentViewTeacher />}
           />
+          <div>
+            <NavLink to="/teacherLogin">Teacher Login</NavLink>
+          </div>
+          <div>
+            <NavLink to="/teacherLogin/:id">Teacher Login</NavLink>
+          </div>
         </Routes>
       </BrowserRouter>
     </div>

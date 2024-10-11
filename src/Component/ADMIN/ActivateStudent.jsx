@@ -16,24 +16,23 @@ const ActivateStudent = () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data /students");
     const snapshot = await get(dataRef);
-    console.log(snapshot);
+   
     if (snapshot.exists()) {
       const key = Object.keys(snapshot.val())[id];
-      console.log(Object.keys(snapshot.val()));
-        setStudentKey(key);
+ 
+      setStudentKey(key);
       setData(Object.values(snapshot.val())[id]);
     } else {
       alert("data is not found");
     }
   };
-  console.log(data);
-  //   console.log(studentKey);
+
   const handleActivate = () => {
     if (studentKey) {
       // Make sure we have a valid teacher key before updating
       const db = getDatabase();
       const studentRef = ref(db, `data /students/${studentKey}`); // Reference to the specific student
-      console.log("activeate ref", studentRef);
+ 
       // Now update the teacher's data
       update(studentRef, {
         active: true,
@@ -50,7 +49,7 @@ const ActivateStudent = () => {
       alert("No teacher selected to update.");
     }
   };
-  console.log("data of active atudent", data);
+
   useEffect(() => {
     fetchTeacherID();
   }, []);

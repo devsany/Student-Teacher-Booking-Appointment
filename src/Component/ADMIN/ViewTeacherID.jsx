@@ -12,17 +12,18 @@ const ViewTeacherID = () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
     const snapshot = await get(dataRef);
-    console.log(snapshot);
+
     if (snapshot.exists()) {
       setData(
-        Object.values(snapshot.val()).filter((item) => item.teacherPassword
-        == id)
+        Object.values(snapshot.val()).filter(
+          (item) => item.teacherPassword == id
+        )
       );
     } else {
       alert("data is not found");
     }
   };
-  console.log(data);
+
   //   filter teacher which mobile numeber is difference
   //   const fetchTeacherWithMobileNumber = () => {
   //     const teacherIDDetail = data.filter((item) => item.number === id);

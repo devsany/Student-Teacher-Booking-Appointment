@@ -10,8 +10,10 @@ const Student_page_id = () => {
   //   const [filteredTeachers, setFilteredTeachers] = useState(data);
   const [query, setQuery] = useState("");
   const { id } = useParams();
+  console.log(id);
+
   const [studentID, setStudentID] = useState(id);
-  console.log(studentID);
+
   const fetchData = async () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
@@ -22,7 +24,7 @@ const Student_page_id = () => {
       alert("data is not found");
     }
   };
-  console.log(data);
+
   const filteredItems = data.filter((item) =>
     item.name.toLowerCase().includes(query.toLowerCase())
   );
@@ -65,7 +67,8 @@ const Student_page_id = () => {
                     <NavLink
                       to={{
                         pathname: `/student/teacher_search/${index}`, // Assuming you have a route like /teacher/:id
-                        state: { ids: id }, // Pass the student data
+                        state: `/ram`,
+                        hash: id, // Pass the student data
                       }}
                     >
                       Appoint Teacher

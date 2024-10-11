@@ -10,43 +10,68 @@ import app from "../firebase/firebaseConsole";
 
 const StudentViewTeacher = () => {
   const location = useLocation();
-  const { ids } = location.state || {}  ; // Get the passed student data
+  console.log(location);
+  console.log(location.hash.substring(1));
+  const [studentID, setStudentID] = useState(location.hash.substring(1));
 
-  console.log("student data", ids);
   const [data, setData] = useState([]);
   const [teacherKey, setTeachertKey] = useState("");
+  const [studentReciveID, setStudentReciveID] = useState([]);
   const { id } = useParams();
   const nav = useNavigate();
   const fetchTeacherID = async () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
     const snapshot = await get(dataRef);
-    console.log(snapshot);
+
     if (snapshot.exists()) {
       const key = Object.keys(snapshot.val())[id];
-      console.log(key);
+
       setTeachertKey(key);
       setData(Object.values(snapshot.val())[id]);
     } else {
       alert("data is not found");
     }
   };
-  console.log(data);
+  // fetch the student through id
+  const fetchStudentID = async () => {
+    const db = getDatabase(app);
+    const dataRef = ref(db, "data /students");
+    const snapshot = await get(dataRef);
+    if (snapshot.exists()) {
+      const key = Object.keys(snapshot.val())[0];
+
+      // setStudentKey(key);
+      console.log(
+        Object.values(snapshot.val()).filter(
+          (item) => item.studentPassword == studentID
+        )[0].studentPassword
+      );
+      setStudentReciveID(
+        Object.values(snapshot.val()).filter(
+          (item) => item.studentPassword == studentID
+        )
+      );
+    } else {
+      alert("data is not found");
+    }
+  };
 
   const handleActivate1 = () => {
     if (teacherKey) {
       // Make sure we have a valid teacher key before updating
       const db = getDatabase();
       const teacherRef = ref(db, `data / teacher/${teacherKey}`); // Reference to the specific student
-      console.log("activeate ref", teacherRef);
+
       // Now update the teacher's data
       update(teacherRef, {
         appoint1: true,
-        appointStudent1: data,
+        // appointStudent1: data,
+        studentInfo1: studentReciveID[0].studentPassword,
       })
         .then(() => {
           alert("Teacher appointed successfully!");
-          nav(`/student/` + id);
+          nav(`/student/` + studentID);
           //   window.location.reload();
         })
         .catch((error) => {
@@ -61,14 +86,16 @@ const StudentViewTeacher = () => {
       // Make sure we have a valid teacher key before updating
       const db = getDatabase();
       const teacherRef = ref(db, `data / teacher/${teacherKey}`); // Reference to the specific student
-      console.log("activeate ref", teacherRef);
+
       // Now update the teacher's data
       update(teacherRef, {
         appoint2: true,
+
+        studentInfo2: studentReciveID[0].studentPassword,
       })
         .then(() => {
           alert("Teacher appointed successfully!");
-          nav(`/student/` + id);
+          nav(`/student/` + studentID);
           //   window.location.reload();
         })
         .catch((error) => {
@@ -83,14 +110,16 @@ const StudentViewTeacher = () => {
       // Make sure we have a valid teacher key before updating
       const db = getDatabase();
       const teacherRef = ref(db, `data / teacher/${teacherKey}`); // Reference to the specific student
-      console.log("activeate ref", teacherRef);
+
       // Now update the teacher's data
       update(teacherRef, {
         appoint3: true,
+
+        studentInfo3: studentReciveID[0].studentPassword,
       })
         .then(() => {
           alert("Teacher appointed successfully!");
-          nav(`/student/` + id);
+          nav(`/student/` + studentID);
           //   window.location.reload();
         })
         .catch((error) => {
@@ -102,6 +131,7 @@ const StudentViewTeacher = () => {
   };
   useEffect(() => {
     fetchTeacherID();
+    fetchStudentID();
     // fetchTeacherWithMobileNumber();
   }, []);
   return (
@@ -110,7 +140,7 @@ const StudentViewTeacher = () => {
       <div>
         <button
           className="bg-gray-500 border rounded-lg p-2"
-          onClick={() => nav(`/student/` + id)}
+          onClick={() => nav(`/student/` + studentID)}
         >
           Back
         </button>

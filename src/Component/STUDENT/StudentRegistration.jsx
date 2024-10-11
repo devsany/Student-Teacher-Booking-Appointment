@@ -83,7 +83,7 @@ const StudentRegistration = () => {
       const db = getDatabase(app);
       const dataRef = ref(db, "data /students");
       const snapshot = await get(dataRef);
-      console.log(snapshot);
+     
       if (snapshot.exists()) {
         setData(
           Object.values(snapshot.val()).filter(
