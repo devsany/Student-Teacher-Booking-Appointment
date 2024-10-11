@@ -16,7 +16,7 @@ dist-ssr
 # Editor directories and files
 
 #ignore the firebase setup
-/src/component/firebase
+/src/component/firebase/firebaseConsole.js
 .vscode/*
 !.vscode/extensions.json
 .idea
