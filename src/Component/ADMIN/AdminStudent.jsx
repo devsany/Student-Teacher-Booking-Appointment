@@ -86,8 +86,8 @@ const AdminStudent = () => {
       <h2 className="block mb-2 text-2xl text-center font-medium text-gray-900 dark:text-white">
         Students List
       </h2>
-      <div className="flex justify-around   flex-wrap">
-        {data &&
+      <div className="">
+        {/* {data &&
           data.map((item, index) => {
             return (
               <>
@@ -136,7 +136,71 @@ const AdminStudent = () => {
                 </div>
               </>
             );
-          })}
+          })} */}
+        <table className="w-full text-sm    text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-center text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th>Name</th>
+              <th>Class</th>
+              <th>School Name</th>
+              <th>Mobile Number</th>
+              <th>Email</th>
+              <th>Student Password</th>
+              <th>Activity</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((item, index) => {
+              return (
+                <>
+                  <tr className="text-center hover:bg-gray-100" key={index}>
+                    <td>{item.name}</td>
+                    <td>{item.class}</td>
+                    <td>{item.school}</td>
+                    <td>{item.number}</td>
+                    <td>{item.email}</td>
+                    <td>{item.studentPassword}</td>
+                    <td>
+                      {" "}
+                      <div>
+                        {item.active ? (
+                          <>
+                            <div className="   ">
+                              <span className="pl-4 pb-1 pt-1 pr-4 bg-green-200 broder rounded-lg">
+                                Activated
+                              </span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="    ">
+                              <span className="pl-4 pb-1 pt-1 pr-4 bg-red-200 broder rounded-lg">
+                                Not Activated
+                              </span>
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    </td>
+                    <td>
+                      <div>
+                        <NavLink
+                          to={`/admin/admin_console/admin_student_console/asmin_studnet_console_id/${index}`}
+                        >
+                          <div className="border m-2 text-center hover:bg-blue-300 pl-3 pr-3 bg-blue-300 rounded-md shadow-sm">
+                            {" "}
+                            View
+                          </div>
+                        </NavLink>
+                      </div>
+                    </td>
+                  </tr>
+                </>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

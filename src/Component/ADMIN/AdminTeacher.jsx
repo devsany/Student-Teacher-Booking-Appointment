@@ -24,6 +24,9 @@ const AdminTeacher = () => {
     a: "",
     number: "",
     email: "",
+    studentMessage1: "",
+    studentMessage2: "",
+    studentMessage3: "",
   });
   const nav = useNavigate();
   const handleClick = () => {
@@ -53,6 +56,9 @@ const AdminTeacher = () => {
       studentInfo1: m.studentInfo1,
       studentInfo2: m.studentInfo2,
       studentInfo3: m.studentInfo3,
+      studentMessage1: m.studentMessage1,
+      studentMessage2: m.studentMessage2,
+      studentMessage3: m.studentMessage3,
     })
       .then(() => {
         alert("data saved successfully");
