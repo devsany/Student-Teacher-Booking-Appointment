@@ -57,7 +57,10 @@ const TeacherStudentINT = () => {
           studentReciveID.map((item, index) => {
             return (
               <>
-                <div className="border p-10 shadow-lime-700-md ml-3 mr-3 text-lg font-medium text-gray-900 dark:text-white m-2 p-2 rounded border-green-200">
+                <div
+                  key={index}
+                  className="border p-10 shadow-lime-700-md ml-3 mr-3 text-lg font-medium text-gray-900 dark:text-white m-2 p-2 rounded border-green-200"
+                >
                   <div>Name-{item.name}</div>
                   <div>Class-{item.class}</div>
                   <div>School Name - {item.school}</div>
