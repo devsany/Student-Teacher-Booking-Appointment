@@ -21,24 +21,66 @@ import StudentViewTeacher from "./Component/STUDENT/StudentViewTeacher";
 import TeacherLogin from "./Component/TEACHER/TeacherLogin";
 import TeacherIdPage from "./Component/TEACHER/TeacherIdPage";
 import TeacherStudentINT from "./Component/TEACHER/TeacherStudentINT";
+import { useState } from "react";
 
 const App = () => {
+  const [toggle, setToggle] = useState(false);
+  // toggle the butgure icon
+  const handleClickburgur = () => {
+    setToggle(!toggle);
+  };
+  const handleClose = () => {
+    setToggle(false);
+  };
   return (
     <div>
       <BrowserRouter>
-        <div>
-          <div>
-            <NavLink to="/">Home</NavLink>
+        <div className="md:grid border-b-2 shadow-purple-200 shadow-md md:grid-cols-8">
+          <div className="md:col-span-4  flex justify-between">
+            <div className="  ">
+              <img
+                src="Slide1.PNG"
+                alt="Header Logo"
+                className="md:m-1 m-2 w-[230px] md:w-[270px]"
+              />
+            </div>
+            {toggle ? (
+              <div className="lg:hidden m-3 md:m-2 xl:hidden md:hidden">
+                <img
+                  onClick={handleClickburgur}
+                  src="close.png"
+                  alt="burgure icon"
+                  className="md:w-[35px] w-[20px] cursor-pointer"
+                />
+              </div>
+            ) : (
+              <div className="lg:hidden m-2 md:m-2 xl:hidden md:hidden">
+                <img
+                  onClick={handleClickburgur}
+                  src="burger-bar (1).png"
+                  alt="burgure icon"
+                  className="md:w-[35px] w-[30px] cursor-pointer"
+                />
+              </div>
+            )}
           </div>
-          <div>
-            <NavLink to="/admin">Admin</NavLink>
-          </div>
-          <div>
-            <NavLink to="/student">Student Section</NavLink>
-          </div>
-          <div>
-            <NavLink to="/teacher">Teacher Login</NavLink>
-          </div>
+
+          {toggle ? (
+            <div className="md:grid text-center  mt-4 grid-cols-4 col-span-4">
+              <div>
+                <NavLink to="/">Home</NavLink>
+              </div>
+              <div>
+                <NavLink to="/admin">Admin</NavLink>
+              </div>
+              <div>
+                <NavLink to="/student">Student Section</NavLink>
+              </div>
+              <div>
+                <NavLink to="/teacher">Teacher Login</NavLink>
+              </div>
+            </div>
+          ) : null}
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
