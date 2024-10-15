@@ -1,3 +1,14 @@
+> Purpose of the Web Project ✨
+
+The purpose of Mentors-Meet is to facilitate seamless communication and interaction between students and mentors (or teachers) in an educational environment. This platform is designed to help students schedule and manage meetings with their mentors, ensuring easy access to guidance and personalized support. With a user-friendly interface, Mentors-Meet aims to:
+
+- `Enhance communication between students and mentors` by providing an efficient appointment scheduling system.
+- `implify administrative tasks for mentors`, allowing them to manage student requests and appointments effortlessly.
+- `Promote personalized learning`, offering students direct access to mentor advice, feedback, and mentorship.
+- `Support growth and learning` by fostering better engagement between students and their mentors through structured, easy-to-manage interactions.
+
+<hr />
+
 > How to clone project
 
 1. Go to your terminal and type following code are as follow.
