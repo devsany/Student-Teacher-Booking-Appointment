@@ -24,7 +24,7 @@ import TeacherStudentINT from "./Component/TEACHER/TeacherStudentINT";
 import { useState } from "react";
 
 const App = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(true);
   // toggle the butgure icon
   const handleClickburgur = () => {
     setToggle(!toggle);
