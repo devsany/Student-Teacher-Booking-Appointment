@@ -1,8 +1,30 @@
-# React + Vite
+> How to clone project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+1. Go to your terminal and type following code are as follow.
 
-Currently, two official plugins are available:
+```
+git clone https://github.com/devsany/Student-Teacher-Booking-Appointment.git
+```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Install all the dependancies.
+
+```
+npm install //it will install all the required dependency.
+```
+
+3. Set up **`Firebase`**
+   - Go to [`Firebase`](#https://firebase.google.com/) website.
+   - SignUp as Studnet.
+   - Create project.
+   - Name the project.
+   - Go to project console.
+   - Go to `realtime database`.
+   - Go to the setting of the project.
+   - Copy all the `Console Code`.
+4. Make a `folder📁` in `src📁` name `firebase`.
+5. Make a `file🗄` in `firebase📁` name `firebaseconsole`.
+6. Open `terminal` and Run Command.
+
+```
+npm run dev
+```
