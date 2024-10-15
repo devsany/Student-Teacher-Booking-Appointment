@@ -87,7 +87,7 @@ const Home = () => {
                 , not just to meet, but to build relationships that inspire
                 lifelong learning.
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center flex-wrap ">
                 <div>
                   <div className="w-[200px] h-[200px] m-5 bg-green-300 rounded-lg shadow-lg">
                     <div className="flex justify-center ">
@@ -169,14 +169,14 @@ const Home = () => {
             <div>
               <img
                 src="istockphoto-1475870499-612x612.jpg"
-                className="md:m-5 m-3 md:w-[500px] w-[400px] rounded-xl"
+                className="md:m-5 m-5 md:w-[500px] w-[300px] rounded-xl"
                 alt=""
               />
             </div>
             <div className="absolute">
               <img
                 src="istockphoto-1328488607-612x612.jpg"
-                className="mt-[-100px] md:mt-[-200px] ml-[300px] md:ml-[350px] w-[150px] md:w-[250px] shadow-lg border-r-4 rounded-xl border-orange-400"
+                className="mt-[-100px] md:mt-[-200px] ml-[200px] md:ml-[350px] w-[150px] md:w-[250px] shadow-lg border-r-4 rounded-xl border-orange-400"
                 alt=""
               />
             </div>
@@ -184,18 +184,18 @@ const Home = () => {
           {/* slogen */}
           <div className="mt-[100px] md:mt-[0px] ">
             <div>
-              <div className="font-mono font-bold   text-[25px] ml-[10px]   md:pt-0 pt-10 md:text-[45px] w-[450px] text-slate-700">
+              <div className="font-mono font-bold   text-[25px] ml-[10px]   md:pt-0 pt-10 md:text-[45px]   text-slate-700">
                 We <span className="text-orange-400">Care for you,</span> We
                 Write for you
               </div>
-              <div className="w-[450px]   ml-[10px]">
+              <div className=" mr-[0px]  ml-[10px]">
                 <span className="font-mono text-sm text-slate-500 ">
                   Education is the bridge that connects knowledge and growth.
                   Our platform strengthens that bridge by fostering seamless
                   communication between students and teachers.
                 </span>
               </div>
-              <div className="mt-5 bg-white border rounded-xl shadow-md md:ml-0 ml-[10px] w-[450px] md:w-[600px] border-slate-200 p-3">
+              <div className="mt-5 bg-white border rounded-xl shadow-md md:ml-0 ml-[10px]   md:w-[600px] border-slate-200 p-3">
                 <span className="flex">
                   <Magnet className="text-purple-500" />
                   <div className="font-mono ml-3 font-bold">
@@ -209,7 +209,7 @@ const Home = () => {
                   </span>
                 </div>
               </div>
-              <div className="mt-5 bg-white border rounded-xl shadow-md  md:ml-0 ml-[10px] w-[450px] md:w-[600px] border-slate-200 p-3">
+              <div className="mt-5 bg-white border rounded-xl shadow-md  md:ml-0 ml-[10px]  md:w-[600px] border-slate-200 p-3">
                 <span className="flex">
                   <QrCode className="text-blue-500" />
                   <div className="font-mono ml-3 font-bold">
@@ -217,7 +217,7 @@ const Home = () => {
                   </div>
                 </span>
               </div>
-              <div className="mt-5 bg-white border rounded-xl shadow-md  md:ml-0 ml-[10px] w-[450px] md:w-[600px] border-slate-200 p-3">
+              <div className="mt-5 bg-white border rounded-xl shadow-md  md:ml-0 ml-[10px]  md:w-[600px] border-slate-200 p-3">
                 <span className="flex">
                   <PanelTopDashed className="text-orange-500" />
                   <div className="font-mono ml-3 font-bold">Easy to access</div>
@@ -301,8 +301,8 @@ const Home = () => {
                 Teacher Scheduling With Student
               </span>
             </div>
-            <div className="flex justify-center mt-10">
-              <div className="flex justify-center ml-10 mr-10 w-[200px] h-[100px]">
+            <div className="flex justify-center flex-wrap mt-10">
+              <div className="flex justify-center mb-[40px] ml-10 mr-10 w-[200px] h-[100px]">
                 <div className="">
                   <div className="flex justify-center">
                     <div className="bg-pink-200 w-[80px] h-[80px] rounded-full p-5">
@@ -314,7 +314,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center ml-10 mr-10 w-[200px] h-[100px]">
+              <div className="flex justify-center mb-[40px] ml-10 mr-10 w-[200px] h-[100px]">
                 <div>
                   <div className="flex justify-center">
                     <div className="bg-green-200 w-[80px] h-[80px] rounded-full p-5">
@@ -326,7 +326,7 @@ const Home = () => {
                   </div>
                 </div>
               </div>
-              <div className="flex justify-center ml-10 mr-10 w-[200px] h-[100px]">
+              <div className="flex justify-center mb-[40px] ml-10 mr-10 w-[200px] h-[100px]">
                 <div>
                   <div className="flex justify-center">
                     <div className="  bg-blue-200 w-[80px] h-[80px] rounded-full p-5">
