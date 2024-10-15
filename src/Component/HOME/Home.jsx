@@ -1,30 +1,45 @@
 import {
-  CornerLeftUpIcon,
-  FacebookIcon,
+  BookUp,
   GroupIcon,
-  Instagram,
-  LeafyGreen,
-  Linkedin,
-  LucideForkKnifeCrossed,
+  LogIn,
   Magnet,
   MessageCircle,
-  MountainSnow,
   MousePointerClickIcon,
-  Notebook,
   PanelTopDashed,
+  Presentation,
   QrCode,
-  QrCodeIcon,
-  StickyNoteIcon,
+  ShowerHead,
   Timer,
-  TimerReset,
-  TrashIcon,
 } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [toggle, setToggle] = useState(false);
+  const nav = useNavigate();
   return (
     <div>
       <div className="h-[100vw] bg-gradient-to-b from-orange-50">
+        <div className="flex justify-end">
+          <div className="fixed ">
+            <div className="flex justify-center">
+              {toggle ? (
+                <div className="bg-white shadow-sm shadow-blue-400 m-3 p-3 rounded-md">
+                  <div className="pl-3 font-mono m-2 hover:bg-blue-100 pr-3 rounded-md bg-[#ddd]">
+                    <NavLink to="/student">Student Section</NavLink>
+                  </div>
+                  <div className="pl-3 font-mono m-2 hover:bg-blue-100 pr-3 rounded-md bg-[#ddd]">
+                    <NavLink to="/teacher">Teacher Login</NavLink>
+                  </div>
+                </div>
+              ) : null}
+              <BookUp
+                className="w-[30px]  ease-in-out duration-300 cursor-pointer h-[30px] text-blue-600 m-3"
+                onClick={() => setToggle(!toggle)}
+              />
+            </div>
+          </div>
+        </div>
         <div className="pt-[75px] flex justify-center  items-center  ">
           <div className="">
             <span className="bg-orange-400 pl-5 pr-5 pt-1 pb-1 font-mono  text-center items-center  rounded-3xl text-white shadow-orange-200 shadow-md">
@@ -33,6 +48,7 @@ const Home = () => {
           </div>
         </div>
         <hr className=" mt-5 mb-5 md:ml-[150px] mr-[50px] ml-[50px] md:mr-[150px]" />
+        {/*foundataion  */}
         <div className="flex justify-center font-mono font-bold text-slate-800 text-[35px]  md:text-[70px] text-center">
           <span className="w-[1000px]">
             Find your teacher & make an Appointment
@@ -47,6 +63,7 @@ const Home = () => {
             all borders.
           </span>
         </div>
+        {/* join us link */}
         <div className="flex justify-center mt-10">
           <span className="pl-5 pr-5 pt-2 pb-2 rounded-[999px] font-mono font-bold text-white shadow-md shadow-purple-400 bg-pink-800">
             Book an Appoinment
@@ -55,6 +72,86 @@ const Home = () => {
             Join Us
           </span>
         </div>
+        {/* get started section */}
+        <div>
+          <div className="md:flex justify-between mt-[150px] ml-10 mr-10">
+            <div>
+              <div className="font-mono font-bold text-center md:text-left text-[30px] md:text-[45px]">
+                Get <span className="text-orange-600">Started</span> With US
+              </div>
+              <div className="font-mono w-full md:text-left text-center md:w-[600px]">
+                Bringing{" "}
+                <span className="text-orange-600">
+                  students and teachers together
+                </span>
+                , not just to meet, but to build relationships that inspire
+                lifelong learning.
+              </div>
+              <div className="flex justify-center">
+                <div>
+                  <div className="w-[200px] h-[200px] m-5 bg-green-300 rounded-lg shadow-lg">
+                    <div className="flex justify-center ">
+                      <div className="text-center p-5">
+                        <div className="flex  justify-center">
+                          <LogIn className="w-[40px] mb-5 h-[40px] text-blue-500" />
+                        </div>
+                        <div>
+                          <span className="font-mono font-bold text-lg">
+                            Register As Student
+                          </span>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              nav("/student");
+                            }}
+                            className="bg-blue-600 text-white pl-10 pr-10 mt-3 rounded-md text-xl"
+                          >
+                            Register
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-[200px] h-[200px] m-5 bg-blue-300 rounded-lg shadow-lg">
+                    <div className="flex justify-center ">
+                      <div className="text-center p-5">
+                        <div className="flex  justify-center">
+                          <Presentation className="w-[40px] mb-5 h-[40px] text-emerald-500" />
+                        </div>
+                        <div>
+                          <span className="font-mono font-bold text-lg">
+                            Login as a Teacher
+                          </span>
+                        </div>
+                        <div>
+                          <button
+                            onClick={() => {
+                              nav("/teacher");
+                            }}
+                            className="bg-green-500 text-white pl-10 pr-10 mt-3 rounded-md text-xl"
+                          >
+                            Login
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="flex justify-center">
+              <img
+                src="/pic/mentors-meets-theam.png"
+                className="w-[300px] md:w-[450px]"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
+        {/* List of some Guru */}
         <div className="flex justify-center">
           <div>
             <span className="flex mt-[100px] justify-center font-mono font-bold text-slate-800 text-[35px]  md:text-[70px] text-center">
@@ -84,6 +181,7 @@ const Home = () => {
               />
             </div>
           </div>
+          {/* slogen */}
           <div className="mt-[100px] md:mt-[0px] ">
             <div>
               <div className="font-mono font-bold   text-[25px] ml-[10px]   md:pt-0 pt-10 md:text-[45px] w-[450px] text-slate-700">
@@ -128,6 +226,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* testimonial */}
         <div className="pt-10">
           <div className="bg-orange-400 rounded-xl shadow-lg w-full md:p-[100px] h-[full]">
             <div className="flex justify-around  flex-wrap flex-1 ">
@@ -193,6 +292,8 @@ const Home = () => {
               </div>
             </div>
           </div>
+
+          {/* Teacher section */}
           <div className=" pt-[100px] md:pt-[200px] ">
             <div className="flex justify-center">
               <span className="font-mono text-[35px] md:text-[45px]  w-[700px] font-bold text-center">
@@ -240,6 +341,7 @@ const Home = () => {
             </div>
           </div>
         </div>
+        {/* footer */}
         <div className="mt-[150px] md:mt-[300px] w-full h-[90vh] md:h-[40vh] bg-orange-400">
           <div className="md:grid md:grid-cols-2 p-10">
             <div className=" md:border-b-0 border-b-2 md:p-0  pb-10 md:pb-0 md:border-r-2 border-orange-800">

@@ -35,8 +35,8 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div className="md:grid border-b-2 shadow-purple-200 shadow-md md:grid-cols-8">
-          <div className="md:col-span-4  flex justify-between">
+        <div className="md:grid border-b-2 shadow-purple-200 shadow-md md:grid-cols-12">
+          <div className="md:col-span-10  flex justify-between">
             <div className="  ">
               <img
                 src="Slide1.PNG"
@@ -66,19 +66,19 @@ const App = () => {
           </div>
 
           {toggle ? (
-            <div className="md:grid text-center  mt-4 grid-cols-4 col-span-4">
-              <div>
+            <div className="md:grid text-center font-mono  text-slate-700  mt-4 grid-cols-2 col-span-2 ">
+              <div className=" ">
                 <NavLink to="/">Home</NavLink>
               </div>
               <div>
                 <NavLink to="/admin">Admin</NavLink>
               </div>
-              <div>
+              {/* <div>
                 <NavLink to="/student">Student Section</NavLink>
               </div>
               <div>
                 <NavLink to="/teacher">Teacher Login</NavLink>
-              </div>
+              </div> */}
             </div>
           ) : null}
         </div>
