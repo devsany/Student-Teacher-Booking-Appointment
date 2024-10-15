@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { admin_id } from "./config";
+
 import { useNavigate } from "react-router-dom";
 
 const Admin = () => {
@@ -8,12 +8,13 @@ const Admin = () => {
   const [password, setAdminPassword] = useState("");
   const [syntaxErrors, setSyntaxError] = useState({});
   const [inputVarificationErrors, setInputVarificationErrors] = useState({});
-  const [admin_config] = useState(admin_id);
+
   const nav = useNavigate();
 
   // handle form on form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(import.meta.VITE_APP_ADMIN_ID);
     // syntax error
     const syntaxError = {};
     const inputVarificationError = {};
@@ -24,9 +25,9 @@ const Admin = () => {
       syntaxError.password = "require";
     } else {
       // input field check
-      if (id !== admin_config.id) {
+      if (id !== import.meta.env.VITE_API_ADMIN_ID) {
         inputVarificationError.id = "ID is not Correct";
-      } else if (password !== admin_config.password) {
+      } else if (password !== import.meta.env.VITE_API_ADMIN_PASSWORD) {
         inputVarificationError.password = "Password is InCorrect";
       } else {
         setAdminID("");
