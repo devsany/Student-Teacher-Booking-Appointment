@@ -1,6 +1,61 @@
+> System Modules
+
+### Admin
+
+- Add Teacher
+  - Name, Department, subject, etc
+- Update/Delete Teacher
+- Approve Registration Student
+
+### Teacher
+
+- Login
+- Schedule Appointment
+- Approve/cancel Appointment
+- View Messages
+- View All Appointment
+- Logout
+
+### Student
+
+- Register
+- Login
+- Search Teacher
+- Book Appointment
+  - Send Message
+
+> Database:
+
+- I have used `FireBase`
+
+> Visual Representation
+
+<div style={{display:'flex'}}>
+<div>
+
+> ![alt text](Slide3.PNG)
+
+</div>
+<div>
+
+> ![alt text](Slide4.PNG)
+
+</div>
+</div>
+<hr />
+
 > Purpose of the Web Project ✨
 
-The purpose of Mentors-Meet is to facilitate seamless communication and interaction between students and mentors (or teachers) in an educational environment. This platform is designed to help students schedule and manage meetings with their mentors, ensuring easy access to guidance and personalized support. With a user-friendly interface, Mentors-Meet aims to:
+Booking appointment systems, either online or through traditional queueing
+systems, are now popular. Several businesses, such as scheduling an appointment,
+employ various Web-based appointment systems for their patients, which improve
+the efficiency of the appointment process, reducing patient wait times and
+increasing the total number of patients treated. This research proposes a web
+based appointment booking system that allows students and lecturers to be aware
+of their appointment time regardless of where they are by using the web or mobile
+devices. By connecting to the Internet, students and instructors can easily access
+the system. It also permits students to send any message, including the
+appointment's purpose and timing
 
 - `Enhance communication between students and mentors` by providing an efficient appointment scheduling system.
 - `implify administrative tasks for mentors`, allowing them to manage student requests and appointments effortlessly.
