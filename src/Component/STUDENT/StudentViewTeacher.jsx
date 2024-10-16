@@ -164,8 +164,10 @@ const StudentViewTeacher = () => {
           <div className="grid grid-cols-3">
             <div onClick={handleActivate1}>
               {data.appoint1 ? (
-                <div className="bg-green-200 m-2 p-2 rounded-lg border">
-                  Appointed 1
+                <div>
+                  <div className="bg-green-200 m-2 p-2 rounded-lg border">
+                    Appointed 1
+                  </div>
                 </div>
               ) : (
                 <div className="bg-red-200 m-2 p-2 rounded-lg border">

@@ -1,4 +1,4 @@
-import { get, getDatabase, ref } from "firebase/database";
+import { get, getDatabase, ref, update } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import app from "../firebase/firebaseConsole";
@@ -12,6 +12,7 @@ const TeacherIdPage = () => {
   const [s1, setS1] = useState("");
   const [s2, setS2] = useState("");
   const [s3, setS3] = useState("");
+  const [teacherKeys, setTeacherKeys] = useState("");
 
   console.log(id);
   const fetchData = async () => {
@@ -48,7 +49,67 @@ const TeacherIdPage = () => {
   console.log(typeof s1);
   console.log(s2);
   console.log(s3);
+
+  const fetchTeacherID = async () => {
+    const db = getDatabase(app);
+    const dataRef = ref(db, "data / teacher");
+    const snapshot = await get(dataRef);
+    if (snapshot.exists()) {
+      const key = Object.keys(snapshot.val());
+      console.log(key);
+      // setStudentKey(key);
+      console.log(Object.values(snapshot.val()));
+      console.log(
+        Object.values(snapshot.val()).filter(
+          (item) => item.teacherPassword == Number(id)
+        )[0]
+      );
+
+      const index = Object.values(snapshot.val()).findIndex(
+        (obj) => obj.teacherPassword === Number(id)
+      );
+      console.log(index);
+      const keys = Object.keys(snapshot.val())[index];
+      console.log(keys);
+      setTeacherKeys(keys);
+      // setStudentReciveID(
+      //   Object.values(snapshot.val()).filter(
+      //     (item) => item.studentPassword == studentID
+      //   )
+      // );
+    } else {
+      alert("data is not found");
+    }
+  };
+  const handleCompleteAppoinment1 = () => {
+    // teacherKey
+    if (teacherKeys) {
+      // Make sure we have a valid teacher key before updating
+      const db = getDatabase();
+      const teacherRef = ref(db, `data / teacher/${teacherKeys}`); // Reference to the specific teacher
+
+      // Now update the teacher's data
+      update(teacherRef, {
+        appoint1: false,
+        appoint2: false,
+        appoint3: false,
+        studentInfo1: "",
+        studentInfo2: "",
+        studentInfo3: "",
+      })
+        .then(() => {
+          alert("Teacher updated successfully!");
+          // nav(`/teacher/${teacherId}`);
+        })
+        .catch((error) => {
+          alert("Error updating teacher:", error);
+        });
+    } else {
+      alert("No teacher selected to update.");
+    }
+  };
   useEffect(() => {
+    fetchTeacherID();
     fetchData();
   }, []);
   return (
@@ -57,7 +118,6 @@ const TeacherIdPage = () => {
         {" "}
         Teacher page
       </div>
-
       <div>
         {data &&
           data.map((item, index) => {
@@ -104,7 +164,7 @@ const TeacherIdPage = () => {
                         </div>
                       </NavLink>
                     ) : (
-                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-red-200 border rounded-lg">
                         Not Appointed
                       </div>
                     )}
@@ -123,7 +183,7 @@ const TeacherIdPage = () => {
                         </div>
                       </NavLink>
                     ) : (
-                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-red-200 border rounded-lg">
                         Not Appointed
                       </div>
                     )}
@@ -140,9 +200,9 @@ const TeacherIdPage = () => {
                         <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-green-200 border rounded-lg">
                           Appoint Teacher
                         </div>
-                      </NavLink>  
+                      </NavLink>
                     ) : (
-                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg--200 border rounded-lg">
+                      <div className="text-lg font-medium text-gray-900 dark:text-white pl-3 pr-3 pt-1 pb-1  bg-red-200 border rounded-lg">
                         Not Appointed
                       </div>
                     )}
@@ -151,6 +211,12 @@ const TeacherIdPage = () => {
               </>
             );
           })}
+      </div>
+      <hr className="m-4" />
+      <div onClick={handleCompleteAppoinment1} className="">
+        <span className="pl-4 pr-4 pt-1 pb-1 hover:text-black m-4 font-mono text-slate-600 bg-green-200 cursor-pointer rounded-md shadow-md">
+          When you complete all the Appointment Click here
+        </span>
       </div>
     </div>
   );

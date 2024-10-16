@@ -1,4 +1,4 @@
-import { get, getDatabase, ref } from "firebase/database";
+import { get, getDatabase, ref, update } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 import app from "../firebase/firebaseConsole";
@@ -7,12 +7,16 @@ const TeacherStudentINT = () => {
   const { id } = useParams();
   const fullPath = window.location.pathname; // Gives you the path after the domain
   console.log(fullPath); // Example: "/teacher/appoint_student/290014/0"
-  const [ulr, setUrl] = useState(Number(fullPath.split("/")[3]));
+  const [ulr, setUrl] = useState(fullPath.split("/")[3]);
+  const parts = fullPath.split("/");
+  // const teacherId = parts[3]; // 312473
+  const [teacherId, setTeacherId] = useState(parts[3]);
   const location = useLocation();
   console.log(location);
   console.log(location.hash.substring(1));
   const [studentID, setStudentID] = useState(location.hash.substring(1));
   const [studentReciveID, setStudentReciveID] = useState([]);
+  const [teacherKey, setTeacherKeys] = useState("");
   console.log(studentID);
   const fetchStudentID = async () => {
     const db = getDatabase(app);
@@ -25,7 +29,7 @@ const TeacherStudentINT = () => {
       console.log(
         Object.values(snapshot.val()).filter(
           (item) => item.studentPassword == Number(studentID)
-        )[0].studentPassword
+        )[0]
       );
       setStudentReciveID(
         Object.values(snapshot.val()).filter(
@@ -36,10 +40,66 @@ const TeacherStudentINT = () => {
       alert("data is not found");
     }
   };
+
+  const fetchTeacherID = async () => {
+    const db = getDatabase(app);
+    const dataRef = ref(db, "data / teacher");
+    const snapshot = await get(dataRef);
+    if (snapshot.exists()) {
+      const key = Object.keys(snapshot.val());
+      console.log(key);
+      // setStudentKey(key);
+      console.log(Object.values(snapshot.val()));
+      console.log(
+        Object.values(snapshot.val()).filter(
+          (item) => item.teacherPassword == Number(teacherId)
+        )[0]
+      );
+
+      const index = Object.values(snapshot.val()).findIndex(
+        (obj) => obj.teacherPassword === Number(teacherId)
+      );
+      console.log(index);
+      const keys = Object.keys(snapshot.val())[index];
+      console.log(keys);
+      setTeacherKeys(keys);
+      // setStudentReciveID(
+      //   Object.values(snapshot.val()).filter(
+      //     (item) => item.studentPassword == studentID
+      //   )
+      // );
+    } else {
+      alert("data is not found");
+    }
+  };
+  const handleCompleteAppoinment1 = () => {
+    // teacherKey
+    if (teacherKey) {
+      // Make sure we have a valid teacher key before updating
+      const db = getDatabase();
+      const teacherRef = ref(db, `data / teacher/${teacherKey}`); // Reference to the specific teacher
+
+      // Now update the teacher's data
+      update(teacherRef, {
+        appoint1: false,
+        studentInfo1: "",
+      })
+        .then(() => {
+          alert("Teacher updated successfully!");
+          nav(`/teacher/${teacherId}`);
+        })
+        .catch((error) => {
+          alert("Error updating teacher:", error);
+        });
+    } else {
+      alert("No teacher selected to update.");
+    }
+  };
   console.log(studentReciveID);
   const nav = useNavigate();
   useEffect(() => {
     fetchStudentID();
+    fetchTeacherID();
   }, []);
   return (
     <>
@@ -66,6 +126,7 @@ const TeacherStudentINT = () => {
                   <div>School Name - {item.school}</div>
                   <div>Email-{item.email}</div>
                   <div>Number-{item.number}</div>
+             
                 </div>
               </>
             );

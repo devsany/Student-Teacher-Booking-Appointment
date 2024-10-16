@@ -25,16 +25,7 @@ const UpdateTeacher = () => {
         department: Object.values(snapshot.val())[id].department,
         subject: Object.values(snapshot.val())[id].subject,
         extraSubject1: Object.values(snapshot.val())[id].extraSubject1,
-        extraSubject2: Object.values(snapshot.val())[id].extraSubject2,
-        // appoint1: Object.values(snapshot.val()).filter(
-        //   (item) => item.number == id
-        // )[id].appoint1,
-        // appoint2: Object.values(snapshot.val()).filter(
-        //   (item) => item.number == id
-        // )[id].appoint2,
-        // appoint3: Object.values(snapshot.val()).filter(
-        //   (item) => item.number == id
-        // )[id].appoint3,
+        extraSubject2: Object.values(snapshot.val())[id].extraSubject2, 
         teacherPassword: Object.values(snapshot.val())[id].teacherPassword,
         a: Object.values(snapshot.val())[id].a,
         number: Object.values(snapshot.val())[id].number,
