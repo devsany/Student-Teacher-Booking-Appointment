@@ -215,7 +215,7 @@ const TeacherIdPage = () => {
       <hr className="m-4" />
       <div onClick={handleCompleteAppoinment1} className="">
         <span className="pl-4 pr-4 pt-1 pb-1 hover:text-black m-4 font-mono text-slate-600 bg-green-200 cursor-pointer rounded-md shadow-md">
-          When you complete all the Appointment Click here
+          When you complete all the Appointment in a day Click here 
         </span>
       </div>
     </div>
