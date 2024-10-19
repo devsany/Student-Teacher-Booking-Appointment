@@ -3,6 +3,12 @@ import { NavLink, useParams, useSearchParams } from "react-router-dom";
 import app from "../firebase/firebaseConsole";
 import { useEffect, useMemo, useState } from "react";
 import StudentViewTeacher from "./StudentViewTeacher";
+import {
+  CarFront,
+  Cylinder,
+  GalleryVerticalEndIcon,
+  HousePlusIcon,
+} from "lucide-react";
 
 const Student_page_id = () => {
   const [data, setData] = useState([]);
@@ -109,17 +115,19 @@ const Student_page_id = () => {
               </div>
             </div>
           </div>
-          <div className="text-center font-mono font-bold  text-3xl text-gray-700 mt-3">
+          <div className="text-center font-mono font-bold   text-3xl text-gray-700 mt-3">
             join Us
           </div>
-          <div className="flex mb-10 border m-3 rounded-lg shadow-md  justify-around">
+          <div className="flex mb-10 border m-3 pt-10 pb-10 mt-10 rounded-lg shadow-md  justify-around">
             <a href="https://chat.whatsapp.com/CkoZZus7UCx4g8rRVMbamI">
               <img
                 className="w-[150px] bg-green-100 rounded-md mt-3"
                 src="/whatsapp-logo-icon-png-svg-removebg-preview.png"
                 alt=""
               />{" "}
-              <span className="font-mono mt-2">We are here to help you</span>
+              <span className="font-mono mt-2 text-xl font-bold text-gray-700">
+                We are here to help you
+              </span>
             </a>
           </div>
         </div>
@@ -150,7 +158,7 @@ const Student_page_id = () => {
               />
             </div>
           </div>
-          <div className="h-[90vh] rounded-md border overflow-x-scroll w-[395px] ml-2">
+          <div className="h-[117.5vh] rounded-md border overflow-x-scroll   md:w-[395px] ml-2">
             {filteredItems &&
               filteredItems.map((item, index) => {
                 return (
@@ -203,7 +211,111 @@ const Student_page_id = () => {
           </div>
         </div>
       </div>
-      <div> hii </div>
+      <div>
+        {/* <div className="text-center font-mono font-bold mb-10  text-3xl text-gray-700 mt-10"></div> */}
+        <div className="grid h-[100vh] md:grid-cols-2">
+          <div className="flex items-center">
+            <img className=" w-[90%]  " src="/mission2.png" alt="" />
+          </div>
+          <div className="items-center pl-4 flex ">
+            <div>
+              <span className="font-bold  text-blue-900 font-mono text-4xl  md:text-6xl  mr-10 pt-10">
+                Learning with Love & laughter
+              </span>
+              <h2 className=" mt-1 font-thin w-[80%] ">
+                Education is the most powerful weapon which you can use to
+                change. Working hard is the only way to increase the chance of
+                success. the world.
+                <div className="   mt-5">
+                  <NavLink to="/">
+                    <span className="pl-2 pr-2 pt-1 pb-1 hover:bg-blue-400 hover:text-blue-950 bg-blue-900 text-white rounded-md">
+                      Click To start
+                    </span>
+                  </NavLink>
+                </div>
+              </h2>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div className="grid md:grid-cols-5 h-[50vh] mt-10 gap-6">
+            <div className="col-span-2 md:mt-0 mt-10 flex items-center pl-4">
+              <div>
+                <div className="md:text-6xl text-4xl w-[340px] md:w-[500px] font-mono font-bold text-blue-900">
+                  Awesome feature We Provide
+                </div>
+                <div>
+                  <div className="font-thin text-md w-[300px]">
+                    Learning is the best method to make you life stable. We are
+                    here to help you with persional guidence
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="border flex items-center">
+              <div>
+                <div className="flex pt-4 items-center justify-center ">
+                  <CarFront className=" text-blue-500 " />
+                </div>
+                <div className="text-center font-mono font-bold text-xl p-3 text-blue-500">
+                  Drive you Carrior with us.
+                </div>
+              </div>
+            </div>
+            <div className="border flex items-center">
+              <div>
+                <div className="flex pt-4 items-center justify-center ">
+                  <HousePlusIcon className=" text-purple-500 " />
+                </div>
+                <div className="text-center font-mono font-bold text-xl p-3 text-purple-500">
+                  Make your Future bright.
+                </div>
+              </div>
+            </div>
+            <div className="border flex items-center">
+              <div>
+                <div className="flex pt-4 items-center justify-center ">
+                  <GalleryVerticalEndIcon className=" text-yellow-800 " />
+                </div>
+                <div className="text-center font-mono font-bold text-xl p-3 text-yellow-800">
+                  Showcase your Dream with us.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className=" p-4 md:mt-10 mt-[200px] h-[100vh] flex items-center">
+        <div className="flex items-center">
+          <div>
+            <div className="md:grid md:grid-cols-2">
+              <div>
+                <img src="/mission3.jpg" alt="" />
+              </div>
+
+              <div className="items-center pl-4 flex ">
+                <div>
+                  <span className="font-bold  text-blue-900 font-mono text-xl  md:text-4xl  mr-10 pt-10">
+                    We Focuse on Sustainable Development
+                  </span>
+                  <h2 className=" mt-1 font-thin w-[80%] ">
+                    All round development is one of the main thing that we
+                    should takecare while we are giving you Education.
+                    <div className="   mt-5">
+                      <NavLink to="/">
+                        <span className="pl-2 pr-2 pt-1 pb-1 hover:bg-blue-400 hover:text-blue-950 bg-blue-900 text-white rounded-md">
+                          Click To start
+                        </span>
+                      </NavLink>
+                    </div>
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
