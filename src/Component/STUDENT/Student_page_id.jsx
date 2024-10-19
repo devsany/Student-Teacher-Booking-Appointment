@@ -89,7 +89,7 @@ const Student_page_id = () => {
           <div className="   overflow-hidden">
             <div className="   p-10  ">
               <div className="flex   left-0 animate-marquee-infinite">
-                <div className="flex w-30 justify-around">
+                <div className="flex  w-30 justify-around">
                   <img src="/1.png" alt="" />
                   <img src="/2.png" alt="" />
                   <img src="/3.png" alt="" />
@@ -112,7 +112,7 @@ const Student_page_id = () => {
           <div className="text-center font-mono font-bold  text-3xl text-gray-700 mt-3">
             join Us
           </div>
-          <div className="flex justify-around">
+          <div className="flex mb-10 border m-3 rounded-lg shadow-md  justify-around">
             <a href="https://chat.whatsapp.com/CkoZZus7UCx4g8rRVMbamI">
               <img
                 className="w-[150px] bg-green-100 rounded-md mt-3"
