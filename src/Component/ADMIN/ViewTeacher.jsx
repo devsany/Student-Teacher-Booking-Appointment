@@ -131,79 +131,77 @@ const ViewTeacher = () => {
           <tbody className="text-sm">
             {data.map((item, index) => {
               return (
-                <>
-                  <tr className="hover:bg-gray-100 border-b-2 ">
-                    <td>{item.teacherPassword}</td>
-                
-                    <td className=" ">
-                      {item.name} ({item.subject})
-                    </td>
-                    <td>
+                <tr key={index} className="hover:bg-gray-100 border-b-2 ">
+                  <td>{item.teacherPassword}</td>
+
+                  <td className=" ">
+                    {item.name} ({item.subject})
+                  </td>
+                  <td>
+                    <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
+                      {item.activity}
+                    </div>
+                  </td>
+                  <td>
+                    {item.appoint1 ? (
                       <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
-                        {item.activity}
+                        Appointed
                       </div>
-                    </td>
-                    <td>
-                      {item.appoint1 ? (
-                        <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
-                          Appointed
-                        </div>
-                      ) : (
-                        <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
-                          Not Appointed
-                        </div>
-                      )}
-                    </td>
-                    <td>
-                      {item.appoint2 ? (
-                        <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
-                          Appointed
-                        </div>
-                      ) : (
-                        <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
-                          Not Appointed
-                        </div>
-                      )}
-                    </td>
-                    <td>
-                      {item.appoint3 ? (
-                        <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
-                          Appointed
-                        </div>
-                      ) : (
-                        <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
-                          Not Appointed
-                        </div>
-                      )}
-                    </td>
-                    <td>{item.department}</td>
-                    <td>{item.email}</td>
-                    <td>{item.extraSubject1}</td>
-                    <td>{item.extraSubject2}</td>
-                    <td>{item.number}</td>
-                    <td>
+                    ) : (
+                      <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
+                        Not Appointed
+                      </div>
+                    )}
+                  </td>
+                  <td>
+                    {item.appoint2 ? (
+                      <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
+                        Appointed
+                      </div>
+                    ) : (
+                      <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
+                        Not Appointed
+                      </div>
+                    )}
+                  </td>
+                  <td>
+                    {item.appoint3 ? (
+                      <div className="pl-2 pr-2 bg-green-200 rounded-md pt-1 pb-1">
+                        Appointed
+                      </div>
+                    ) : (
+                      <div className="pl-2 pr-2 bg-red-200 rounded-md pt-1 pb-1">
+                        Not Appointed
+                      </div>
+                    )}
+                  </td>
+                  <td>{item.department}</td>
+                  <td>{item.email}</td>
+                  <td>{item.extraSubject1}</td>
+                  <td>{item.extraSubject2}</td>
+                  <td>{item.number}</td>
+                  <td>
+                    <NavLink
+                      to={`/admin/admin_console/admin_view_teacher_console/${item.teacherPassword}`}
+                    >
+                      <span className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                        View
+                      </span>
+                    </NavLink>
+                  </td>
+                  <td>
+                    <div className="border rounded-md text-center m-2 bg-gray-200 hover:bg-gray-300">
                       <NavLink
-                        to={`/admin/admin_console/admin_view_teacher_console/${item.teacherPassword}`}
+                        to={`/admin/admin_console/admin_update_teacher_console/${index}`}
                       >
-                        <span className="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-                          View
+                        <span className="font-medium pl-3 pr-3 pt-2 pb-2 text-blue-600 dark:text-blue-500 hover:underline">
+                          {" "}
+                          Update
                         </span>
                       </NavLink>
-                    </td>
-                    <td>
-                      <div className="border rounded-md text-center m-2 bg-gray-200 hover:bg-gray-300">
-                        <NavLink
-                          to={`/admin/admin_console/admin_update_teacher_console/${index}`}
-                        >
-                          <span className="font-medium pl-3 pr-3 pt-2 pb-2 text-blue-600 dark:text-blue-500 hover:underline">
-                            {" "}
-                            Update
-                          </span>
-                        </NavLink>
-                      </div>
-                    </td>
-                  </tr>
-                </>
+                    </div>
+                  </td>
+                </tr>
               );
             })}
           </tbody>

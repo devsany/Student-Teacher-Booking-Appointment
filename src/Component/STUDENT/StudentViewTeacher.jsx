@@ -10,8 +10,8 @@ import app from "../firebase/firebaseConsole";
 
 const StudentViewTeacher = () => {
   const location = useLocation();
-  console.log(location);
-  console.log(location.hash.substring(1));
+  // console.log(location);
+  // console.log(location.hash.substring(1));
   const [studentID, setStudentID] = useState(location.hash.substring(1));
 
   const [data, setData] = useState([]);
@@ -42,11 +42,11 @@ const StudentViewTeacher = () => {
       const key = Object.keys(snapshot.val())[0];
 
       // setStudentKey(key);
-      console.log(
-        Object.values(snapshot.val()).filter(
-          (item) => item.studentPassword == studentID
-        )[0].studentPassword
-      );
+      // console.log(
+      //   Object.values(snapshot.val()).filter(
+      //     (item) => item.studentPassword == studentID
+      //   )[0].studentPassword
+      // );
       setStudentReciveID(
         Object.values(snapshot.val()).filter(
           (item) => item.studentPassword == studentID

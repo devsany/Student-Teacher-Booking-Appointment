@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <div className="md:grid border-b-2 shadow-purple-200 shadow-md md:grid-cols-12">
+        <div className="md:grid border-b-2 h-[60px] shadow-purple-200 shadow-md md:grid-cols-12">
           <div className="md:col-span-10  flex justify-between">
             <div className="  ">
               <img

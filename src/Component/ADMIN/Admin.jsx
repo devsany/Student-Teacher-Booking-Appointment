@@ -14,7 +14,6 @@ const Admin = () => {
   // handle form on form submit
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(import.meta.VITE_APP_ADMIN_ID);
     // syntax error
     const syntaxError = {};
     const inputVarificationError = {};

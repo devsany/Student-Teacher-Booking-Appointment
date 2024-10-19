@@ -14,7 +14,6 @@ const TeacherIdPage = () => {
   const [s3, setS3] = useState("");
   const [teacherKeys, setTeacherKeys] = useState("");
 
-  console.log(id);
   const fetchData = async () => {
     const bd = getDatabase(app);
     const dataRef = ref(bd, "data / teacher");
@@ -45,32 +44,17 @@ const TeacherIdPage = () => {
     }
   };
 
-  console.log(data);
-  console.log(typeof s1);
-  console.log(s2);
-  console.log(s3);
-
   const fetchTeacherID = async () => {
     const db = getDatabase(app);
     const dataRef = ref(db, "data / teacher");
     const snapshot = await get(dataRef);
     if (snapshot.exists()) {
       const key = Object.keys(snapshot.val());
-      console.log(key);
-      // setStudentKey(key);
-      console.log(Object.values(snapshot.val()));
-      console.log(
-        Object.values(snapshot.val()).filter(
-          (item) => item.teacherPassword == Number(id)
-        )[0]
-      );
 
       const index = Object.values(snapshot.val()).findIndex(
         (obj) => obj.teacherPassword === Number(id)
       );
-      console.log(index);
       const keys = Object.keys(snapshot.val())[index];
-      console.log(keys);
       setTeacherKeys(keys);
       // setStudentReciveID(
       //   Object.values(snapshot.val()).filter(

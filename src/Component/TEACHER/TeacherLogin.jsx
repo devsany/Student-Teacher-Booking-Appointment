@@ -39,7 +39,6 @@ const TeacherLogin = () => {
     } else {
       setError(true);
     }
-    console.log("clicked teacher");
   };
   return (
     <div>
