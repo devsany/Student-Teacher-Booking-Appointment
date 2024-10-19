@@ -8,6 +8,7 @@ import {
   Cylinder,
   GalleryVerticalEndIcon,
   HousePlusIcon,
+  MousePointerClickIcon,
 } from "lucide-react";
 
 const Student_page_id = () => {
@@ -312,6 +313,38 @@ const Student_page_id = () => {
                   </h2>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      hii
+      <img
+        src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ftenor.com%2Fsearch%2Fwebsite-gifs&psig=AOvVaw2ikqB8xaoG2T7HM-f_md9x&ust=1729445138144000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJjrlaz7mokDFQAAAAAdAAAAABAR"
+        alt=""
+      />
+      {/* footer */}
+      <div className="mt-[150px] md:mt-[300px] w-full h-[90vh] md:h-[40vh] bg-orange-400">
+        <div className="md:grid md:grid-cols-2 p-10">
+          <div className=" md:border-b-0 border-b-2 md:p-0  pb-10 md:pb-0 md:border-r-2 border-orange-800">
+            <span className="font-mono font-bold text-[45px]  text-white ">
+              Let's <span className="text-black">Crack</span> Something Together
+            </span>
+            <div className="text-white font-mono pr-5">
+              Our <span className="text-black">Team is always ready</span> to
+              help you. If you face any trouble plz free to contact us we are
+              ready to help you{" "}
+            </div>
+          </div>
+          <div className="pl-10">
+            <div className="flex justify-center items-end h-[18vh]">
+              <a href="https://app.formbricks.com/s/cm29wcjhw000anf2yqf7xxgz5">
+                <div className="flex ">
+                  <div className="pl-3 pr-3 pt-[6px] rounded-xl text-[18px] text-white bg-blue-500 font-mono font-bold ">
+                    Submit Your Answer{" "}
+                  </div>
+                  <MousePointerClickIcon className=" w-[40px] h-[40px] text-white ml-[-10px]" />
+                </div>
+              </a>
             </div>
           </div>
         </div>
