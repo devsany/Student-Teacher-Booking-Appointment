@@ -27,6 +27,8 @@ const AdminTeacher = () => {
     studentMessage1: "",
     studentMessage2: "",
     studentMessage3: "",
+    pay: "",
+    age: "",
   });
   const nav = useNavigate();
   const handleClick = () => {
@@ -59,6 +61,8 @@ const AdminTeacher = () => {
       studentMessage1: m.studentMessage1,
       studentMessage2: m.studentMessage2,
       studentMessage3: m.studentMessage3,
+      pay: m.pay,
+      age: m.age,
     })
       .then(() => {
         alert("data saved successfully");
@@ -162,6 +166,24 @@ const AdminTeacher = () => {
                   onChange={handleChange}
                 />
               </div>
+              <div className="shadow-lg rounded-md  text-md h-[120px] p-2">
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="age"
+                >
+                  Age
+                </label>
+                <input
+                  required
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="age"
+                  name="age"
+                  type="text"
+                  placeholder="Enter Teacher age"
+                  value={m.age}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
             <div>
               <div className="shadow-lg rounded-md  text-md h-[120px] p-2">
@@ -179,6 +201,24 @@ const AdminTeacher = () => {
                   type="text"
                   placeholder="Enter Teacher name"
                   value={m.subject}
+                  onChange={handleChange}
+                />
+              </div>
+              <div className="shadow-lg rounded-md  text-md h-[120px] p-2">
+                <label
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  htmlFor="pay"
+                >
+                  Payment Per hour
+                </label>
+                <input
+                  required
+                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  id="pay"
+                  name="pay"
+                  type="number"
+                  placeholder="Enter pay Amount"
+                  value={m.pay}
                   onChange={handleChange}
                 />
               </div>
@@ -234,6 +274,7 @@ const AdminTeacher = () => {
                   </select>
                 </div>
               </div>
+
               <div className="flex float-right mt-2 mb-5">
                 <button
                   className="border pl-6 pr-6 pt-1 pb-1 rounded-md bg-blue-200"
