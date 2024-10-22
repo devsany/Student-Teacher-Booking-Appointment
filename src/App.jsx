@@ -23,6 +23,8 @@ import TeacherIdPage from "./Component/TEACHER/TeacherIdPage";
 import TeacherStudentINT from "./Component/TEACHER/TeacherStudentINT";
 import { useState } from "react";
 
+// const TeacherLogin = lazy(() => import("./Component/TEACHER/TeacherLogin"));
+
 const App = () => {
   const [toggle, setToggle] = useState(true);
   // toggle the butgure icon
@@ -118,6 +120,7 @@ const App = () => {
             path="/student/teacher_search/:id"
             element={<StudentViewTeacher />}
           />
+
           <Route path="/teacher" element={<TeacherLogin />} />
           <Route path="/teacher/:id" element={<TeacherIdPage />} />
           <Route
